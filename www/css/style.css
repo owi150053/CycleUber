@@ -1,0 +1,30 @@
+/* Empty. Add your own CSS if you like */
+.bar .button.button-clear {
+    color: #000;
+}
+
+span.back-text {
+    display: none !important;
+}
+
+.badge-box .badge {
+    display: inline !important;
+    position: static;
+    float: right;
+}
+
+.badge-box .item-icon-left {
+    padding-left: 30px;
+}
+
+.badge-box .icon {
+    font-size: 22px;
+}
+
+.card .item {
+    border: 1px solid #eee;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}

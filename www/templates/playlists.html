@@ -1,0 +1,10 @@
+<ion-view view-title="Playlists">
+  <ion-content>
+    <ion-list class="animate-blinds">
+        <a class="item" ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+          {{playlist.title}}
+          {{playlist.id}}
+        </a>
+    </ion-list>
+  </ion-content>
+</ion-view>
