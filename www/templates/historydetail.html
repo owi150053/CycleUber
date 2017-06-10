@@ -1,0 +1,19 @@
+<ion-view view-title="History" hide-back-button="true">
+    <ion-content>
+        <div class="list card">
+            <div class="item">
+                <div class="historyimg">
+                    <img class="historyimg-img" ng-src="{{itemDetail.photo}}">
+                </div>
+                <h2 class="text-center">{{itemDetail.user_name}}</h2>
+                <p class="text-capitalize text-center">{{itemDetail.service_type}}</p>
+            </div>
+            <div class="item padding-bottom">
+                <div id="map"></div>
+            </div>
+            <div class="item item-balanced">
+                <h1 class="text-center white">Total: R{{itemDetail.cost}}</h1>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view view-title="History" hide-back-button="true" hide-nav-bar="true">
+
+    <ion-content class="padding-top">
+        <h1 class="text-center padding-top padding-bottom">Login</h1>
+        <form ng-submit="doLogin()">
+            <div class="list">
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Email</span>
+                    <input type="text" ng-model="details.email" placeholder="Email">
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Password</span>
+                    <input type="password" ng-model="details.password" placeholder="Password">
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit">Log in</button>
+                </label>
+                <p class="text-center assertive">{{logErrEmail}}{{validation}}</p>
+            </div>
+        </form>
+        <div class="list">
+            <div class="item">
+                <h6 class="text-center">Don't have an account?</h6>
+                <button class="button button-block button-calm" ng-click="signup()">Sign Up</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -8,17 +8,40 @@
     <ion-content>
         <form ng-submit="doSignUp()">
             <div class="list">
-                <label class="item item-input item-floating-label">
-                    <span class="input-label">Username</span>
-                    <input type="text" ng-model="details.email" placeholder="Register Username">
+                <h6 class="text-center">Choose a profile image<span class="energized">*</span></h6>
+                <div class="item item-thumbnail-left signUpimg" ng-click="takeProfile()">
+                    <div class="pp-edit-icon">
+                        <i class="icon ion-edit"></i>
+                    </div>
+                    <img ng-src="{{profilePicture}}">
+                </div>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Username<span class="energized">*</span></span>
+                    <input type="text" ng-model="signupForm.user_name" placeholder="Register Username">
                 </label>
-                <label class="item item-input item-floating-label">
-                    <span class="input-label">Password</span>
-                    <input type="password" ng-model="details.password" placeholder="New Password">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Email<span class="energized">*</span></span>
+                    <input type="text" ng-model="signupForm.email_address" placeholder="Register Email">
                 </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Password<span class="energized">*</span></span>
+                    <input type="password" ng-model="signupForm.password_hash" placeholder="New Password">
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        User Type<span class="energized">*</span>
+                    </div>
+                    <select ng-model="signupForm.user_type">
+                        <option value="user" selected>Cyclist</option>
+                        <option value="driver">Uber</option>
+                    </select>
+                </label>
+                <p class="energized text-center">*All Fields Are Required</p>
                 <label class="item">
-                    <button class="button button-block button-positive" type="submit">Log in</button>
+                    <button class="button button-block button-positive" type="submit">Sign Up</button>
                 </label>
+                <p class="text-center assertive">{{error}}</p>
+                <p class="text-center assertive">{{errorp}}</p>
             </div>
         </form>
     </ion-content>

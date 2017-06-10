@@ -6,11 +6,13 @@
     </div>
   </ion-header-bar>
   <ion-content>
+    <h4 class="text-center calm-900">{{registered.title}}</h4>
+    <h6 class="text-center calm">{{registered.msg}}</h6>
     <form ng-submit="doLogin()">
       <div class="list">
         <label class="item item-input item-floating-label">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="details.email" placeholder="Username">
+          <span class="input-label">Email</span>
+          <input type="text" ng-model="details.email" placeholder="Email">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Password</span>
@@ -19,7 +21,14 @@
         <label class="item">
           <button class="button button-block button-positive" type="submit">Log in</button>
         </label>
+        <p class="text-center assertive">{{logErrEmail}}{{validation}}</p>
       </div>
     </form>
+    <div class="list">
+      <div class="item">
+        <h6 class="text-center">Don't have an account?</h6>
+        <button class="button button-block button-calm" ng-click="signup()">Sign Up</button>
+      </div>
+    </div>
   </ion-content>
 </ion-modal-view>
