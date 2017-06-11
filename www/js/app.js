@@ -47,7 +47,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/',
       views: {
         'menuContent': {
-          templateUrl: 'templates/home.html'
+            templateUrl: 'templates/home.html',
+            controller: 'AddRequestCtrl'
         }
       }
   })
@@ -98,6 +99,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
+      .state('app.quotes', {
+      url: '/quotes',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/quotes.html',
+          controller: 'QuoteCtrl'
+        }
+      }
+    })
       .state('app.user', {
       url: '/user',
       views: {
@@ -127,6 +137,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         'menuContent': {
           templateUrl: 'templates/historydetail.html',
           controller: 'HistoryDetailCtrl'
+        }
+      }
+    })
+
+      .state('app.requestdetail', {
+      url: '/requestdetail',
+          params: {
+              itemId: 0
+          },
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/requestdetail.html',
+          controller: 'RequestDetailCtrl'
         }
       }
     })

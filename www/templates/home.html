@@ -1,27 +1,17 @@
 <ion-view view-title="Cycle Uber" hide-back-button="true">
-    <ion-content>
-        <div class="list card">
-            <div class="item item-avatar">
-                <img src="img/profile/john.jpg">
-                <h2>John Doe</h2>
-                <p>Repair</p>
-            </div>
-            <div class="item badge-box">
-                <p class="item-icon-left">
-                    <i class="icon ion-ios-location-outline"></i>
-                    Location
-                    <span class="badge badge-positive">R 260,00</span>
-                    <span class="badge badge-balanced">5km</span>
-                </p>
-            </div>
-            <div class="item">
-                <div class="button-bar">
-                    <button class="button button-flat button-calm icon ion-eye">
-                        Details
-                    </button>
-                </div>
-            </div>
-        </div>
+    <ion-content class="">
+        <div id="main-map" data-tap-disabled="true" ng-hide="userType"></div>
+        <div id="main-map-driver" data-tap-disabled="true" ng-show="userType"></div>
 
     </ion-content>
+    <div class="tabs tabs-icon-top tabs-light tabs-content-bottom" ng-hide="userType">
+        <a class="tab-item positive" ng-click="repair()">
+            <i class="icon ion-wrench"></i>
+            Repairs
+        </a>
+        <a class="tab-item positive" ng-click="showPickup()">
+            <i class="icon ion-ios-location"></i>
+            Pickup
+        </a>
+    </div>
 </ion-view>

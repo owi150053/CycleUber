@@ -1,0 +1,38 @@
+<ion-view view-title="Request Detail">
+    <ion-content class="">
+        <div class="list request-detail padding-top padding-bottom">
+            <h3 class="text-center white text-capitalize">{{item.service_type}}</h3>
+            <h5 class="text-center white">{{item.user_name}}</h5>
+        </div>
+        <form name="submit" ng-submit="addQuote()">
+            <div class="list">
+                <div class="item item-icon-left">
+                    <i class="icon ion-android-car"></i> {{distance}} km
+                    <span class="badge badge-balanced">R {{cost}}</span>
+                </div>
+                <div class="item" ng-show="repair">
+                    <p class="text-center">Damage</p>
+                    <img id="repairImg" class="repairImg" ng-src="">
+                </div>
+                <label class="item item-input item-floating-label" ng-show="repair">
+                    <span class="input-label">Parts Cost</span>
+                    <input id="part" type="number" ng-model="part.cost" placeholder="Parts Cost">
+                </label>
+                <input type="submit" id="submit" value="Submit" style="display:none">
+            </div>
+        </form>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="title">{{part.cost + cost}}</div>
+        <div class="buttons buttons-right">
+            <a type="submit"  class="">
+                <label for="submit">
+                    <button class="button button-calm button-fab">
+                        <i class="icon ion-paper-airplane light"></i>
+                    </button>
+                </label>
+
+            </a>
+        </div>
+    </div>
+</ion-view>

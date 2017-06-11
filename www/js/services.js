@@ -69,19 +69,52 @@ angular.module('starter.services', [])
     })
 
     .service('UberService', function ($http, LoginService) {
-        this.serviceRequest = {
-            service_type: "",
-            longitude: "",
-            latitude: "",
-            user_id: "",
-            photo: ""
+        this.serviceRequest = {};
+        this.quote = {
+            service_type : "",
+            longitude : "",
+            latitude : "",
+            user_id : "",
+            photo : "",
+            vendor_id : "",
+            distance : "",
+            cost : ""
+        };
+
+        this.rate = 8.5;
+
+
+        this.driverLat = "";
+        this.driverLng = "";
+
+        this.getDistance = function(userLat, userLng, driverLat, driverLng) {
+            var origin = new google.maps.LatLng( parseFloat(userLat), parseFloat(userLng) ); // using google.maps.LatLng class
+            var destination = driverLat + ', ' + driverLng; // using string
+
+            var directionsService = new google.maps.DirectionsService();
+            var request = {
+                origin: origin, // LatLng|string
+                destination: destination, // LatLng|string
+                travelMode: google.maps.DirectionsTravelMode.DRIVING
+            };
+            directionsService.route( request, function( response, status ) {
+
+                if ( status === 'OK' ) {
+                    var point = response.routes[ 0 ].legs[ 0 ];
+                    var dist = point.distance.value;
+                    var distKM = dist / 1000;
+                    $scope.dist = distKM.toFixed(2);
+                    console.log($scope.dist);
+                    console.log(driverLng);
+                }
+            } );
         };
 
 
+        this.email = LoginService.email;
+        this.password = LoginService.password;
 
-        var email = LoginService.email;
-        var password = LoginService.password;
-
+        var credentials = this.email + ":" + this.password;
         this.getConfig = function (method, resource, data) {
             if (data == null) {
                 data = "";
@@ -93,7 +126,7 @@ angular.module('starter.services', [])
                 data: data
             };
 
-            var authHeader = "Basic " + base64.encode(email+":"+password);
+            var authHeader = "Basic " + base64.encode(credentials);
             config.headers = {
                 "Content-Type": "application/json",
                 "Authorization": authHeader
@@ -118,8 +151,28 @@ angular.module('starter.services', [])
             return $http(this.getConfig('GET', 'userhistorydetail/'+h_id, ''));
         };
 
-        this.addLoan = function () {
-            return $http(this.getConfig('POST', 'loans', this.loan));
+        this.addServiceRequest = function () {
+            return $http(this.getConfig('POST', 'requested', this.serviceRequest));
+        };
+
+        this.addQuote = function () {
+            return $http(this.getConfig('POST', 'quotes', this.quote));
+        };
+
+        this.getServiceRequest = function () {
+            return $http(this.getConfig('GET', 'requested', ''));
+        };
+
+        this.getRequest = function (itemId) {
+            return $http(this.getConfig('GET', 'requested/'+itemId, ''));
+        };
+
+        this.getQuotesUser = function (userId) {
+            return $http(this.getConfig('GET', 'quotes/'+userId, ''));
+        };
+
+        this.getQuotesVendor = function (userId) {
+            return $http(this.getConfig('GET', 'vendorquotes/'+userId, ''));
         };
 
     })

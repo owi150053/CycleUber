@@ -1,0 +1,26 @@
+<ion-view view-title="History" hide-back-button="true">
+    <ion-content>
+        <div class="list card" ng-repeat="item in serviceItems">
+            <div class="item item-avatar">
+                <img src="">
+                <h2>{{item.user_name}}</h2>
+                <p class="text-capitalize">{{item.service_type}}</p>
+            </div>
+            <div class="item badge-box">
+                <p class="item-icon-left">
+                    <i class="icon ion-ios-location-outline"></i>
+                    {{item.latitude}} | {{item.longitude}}
+                    <span class="badge badge-positive">R {{item.cost}}</span>
+                    <span class="badge badge-balanced">{{item.distance}}km</span>
+                </p>
+            </div>
+            <div class="item">
+                <div class="button-bar">
+                    <button class="button button-flat button-calm icon ion-eye">
+                        Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
