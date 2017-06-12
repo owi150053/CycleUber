@@ -19,24 +19,21 @@
     <ion-content>
       <ion-list>
           <ion-item menu-close href="#/app/">
-              Home
+              Request Service
           </ion-item>
           <ion-item menu-close href="#/app/quotes">
-              Current Quotes
+              Quotes
           </ion-item>
           <ion-item menu-close href="#/app/history">
               History
           </ion-item>
-        <ion-item menu-close ng-click="login()">
+        <ion-item menu-close ng-click="login()" ng-show="loginClass">
           Login
         </ion-item>
-          <ion-item menu-close ng-click="signup()">
+          <ion-item menu-close ng-click="signup()" ng-show="loginClass">
           Sign Up
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
-        </ion-item>
-        <ion-item menu-close ng-click="logout()">
+        <ion-item menu-close ng-click="logout()" ng-hide="loginClass">
           Log Out
         </ion-item>
       </ion-list>

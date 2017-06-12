@@ -1,19 +1,29 @@
-<ion-view view-title="History" hide-back-button="true">
+<ion-view view-title="History">
     <ion-content>
         <div class="list card">
             <div class="item">
                 <div class="historyimg">
-                    <img class="historyimg-img" ng-src="{{itemDetail.photo}}">
+                    <img class="historyimg-img" ng-src="{{itemDetail.user_photo}}">
                 </div>
                 <h2 class="text-center">{{itemDetail.user_name}}</h2>
                 <p class="text-capitalize text-center">{{itemDetail.service_type}}</p>
             </div>
+            <div class="item badge-box">
+                <p class="item-icon-left">
+                    <i class="icon ion-ios-location-outline"></i>
+                    {{itemDetail.latitude}} | {{itemDetail.longitude}}
+                    <span class="badge badge-balanced">{{itemDetail.distance}}km</span>
+                </p>
+            </div>
+            <div class="item">
+                <img class="repairImg" ng-src="{{itemDetail.service_photo}}">
+            </div>
             <div class="item padding-bottom">
                 <div id="history-map" data-tap-disabled="true"></div>
             </div>
-            <div class="item item-balanced">
-                <h1 class="text-center white">Total: R{{itemDetail.cost}}</h1>
-            </div>
         </div>
     </ion-content>
+    <div class="bar bar-footer bar-balanced">
+        <div class="title">R {{itemDetail.cost}}</div>
+    </div>
 </ion-view>

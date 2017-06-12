@@ -70,6 +70,7 @@ angular.module('starter.services', [])
 
     .service('UberService', function ($http, LoginService) {
         this.serviceRequest = {};
+        this.serviceId = 0;
         this.quote = {
             service_type : "",
             longitude : "",
@@ -173,6 +174,26 @@ angular.module('starter.services', [])
 
         this.getQuotesVendor = function (userId) {
             return $http(this.getConfig('GET', 'vendorquotes/'+userId, ''));
+        };
+
+        this.getCurrentService = function (Id) {
+            return $http(this.getConfig('GET', 'currentservice/'+Id, ''));
+        };
+
+        this.jobDone = function (Id) {
+            return $http(this.getConfig('POST', 'jobdone/'+Id, ''));
+        };
+
+        this.acceptQuote = function (quoteId) {
+            return $http(this.getConfig('POST', 'quoteaccept/'+quoteId, ''));
+        };
+
+        this.deleteQuote = function (quoteId) {
+            return $http(this.getConfig('DELETE', 'quotes/'+quoteId, ''));
+        };
+
+        this.deleteRequest = function (quoteId) {
+            return $http(this.getConfig('DELETE', 'requested/'+quoteId, ''));
         };
 
     })

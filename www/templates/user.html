@@ -10,5 +10,35 @@
                 </h3>
             </div>
         </div>
+        <div class="list">
+            <div class="item">
+                <h3 class="text-right">Total Spent R {{totalU}}</h3>
+            </div>
+        </div>
+        <div class="list card" ng-repeat="item in historyItems">
+            <div class="item item-avatar">
+                <img src="{{item.user_photo}}">
+                <h2>{{item.user_name}}</h2>
+                <p class="text-capitalize">{{item.service_type}}</p>
+            </div>
+            <div class="item badge-box">
+                <p class="item-icon-left">
+                    <i class="icon ion-ios-location-outline"></i>
+                    {{item.latitude}} | {{item.longitude}}
+                    <span class="badge badge-positive">R {{item.cost}}</span>
+                    <span class="badge badge-balanced">{{item.distance}}km</span>
+                </p>
+            </div>
+            <div class="item itemImg">
+                <img class="repairImg" ng-src="{{item.service_photo}}">
+            </div>
+            <div class="item">
+                <div class="button-bar">
+                    <button class="button button-flat button-calm icon ion-eye" ng-click="seeHistory({{item.id}})">
+                        Details
+                    </button>
+                </div>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

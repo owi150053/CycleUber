@@ -62,16 +62,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           }
       })
 
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
-
       .state('app.login', {
           url: '/login',
           views: {
@@ -82,23 +72,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           }
       })
 
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
       .state('app.quotes', {
       url: '/quotes',
       views: {
@@ -128,6 +101,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
 
+      .state('app.service', {
+      url: '/service',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/service.html',
+          controller: 'ServiceCtrl'
+        }
+      }
+    })
+
       .state('app.historydetail', {
       url: '/historydetail',
           params: {
@@ -152,17 +135,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           controller: 'RequestDetailCtrl'
         }
       }
-    })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
+    });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
 });

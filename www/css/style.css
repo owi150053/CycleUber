@@ -139,6 +139,18 @@ span.back-text {
     margin-right: auto;
 }
 
+.list .item {
+    min-height: 0px;
+}
+
+.itemHeight {
+
+}
+
+.itemImg {
+    padding: 0;
+}
+
 .repairImg, .infoImg {
     width: 100%;
 }
@@ -148,4 +160,9 @@ span.back-text {
     bottom: 0px;
     left: 0px;
     right: 0px;
+}
+
+.no-pad {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
 }

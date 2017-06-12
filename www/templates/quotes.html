@@ -1,8 +1,10 @@
-<ion-view view-title="History" hide-back-button="true">
+<ion-view view-title="Quotes" hide-back-button="true">
     <ion-content>
+        <h4 class="text-center" ng-show="userView">Wait here to see who quotes you...</h4>
+        <h4 class="text-center" ng-hide="userView">Sent quotes...</h4>
         <div class="list card" ng-repeat="item in serviceItems">
             <div class="item item-avatar">
-                <img src="">
+                <img ng-src="{{item.photo}}">
                 <h2>{{item.user_name}}</h2>
                 <p class="text-capitalize">{{item.service_type}}</p>
             </div>
@@ -16,8 +18,11 @@
             </div>
             <div class="item">
                 <div class="button-bar">
-                    <button class="button button-flat button-calm icon ion-eye">
-                        Details
+                    <button class="button button-flat button-assertive icon ion-android-close no-pad" ng-click="serviceItems.splice($index, 1); dismissQuote({{item}})">
+                        Dismiss
+                    </button>
+                    <button class="button button-flat button-balanced icon ion-eye no-pad" ng-show="userView" ng-click="serviceItems.splice($index, 1); addQuote({{item}})">
+                        Accept
                     </button>
                 </div>
             </div>

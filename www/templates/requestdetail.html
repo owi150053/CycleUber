@@ -12,7 +12,7 @@
                 </div>
                 <div class="item" ng-show="repair">
                     <p class="text-center">Damage</p>
-                    <img id="repairImg" class="repairImg" ng-src="">
+                    <img id="repairImg" class="repairImg" ng-src="{{item.photo}}">
                 </div>
                 <label class="item item-input item-floating-label" ng-show="repair">
                     <span class="input-label">Parts Cost</span>
@@ -31,7 +31,6 @@
                         <i class="icon ion-paper-airplane light"></i>
                     </button>
                 </label>
-
             </a>
         </div>
     </div>

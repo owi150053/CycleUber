@@ -1,0 +1,36 @@
+<ion-view view-title="" hide-back-button="true" hide-nav-bar="true">
+    <ion-content>
+        <div class="list padding-top user-profile">
+            <div class="item item-thumbnail-left signUpimg">
+                <img class="profilImg" ng-src="{{item.user_photo}}">
+            </div>
+            <div class="item">
+                <h3 class="text-center text-capitalize">
+                    {{item.user_name}}
+                </h3>
+            </div>
+        </div>
+        <div class="list">
+            <div class="item badge-box">
+                <p class="item-icon-left">
+                    <i class="icon ion-ios-location-outline"></i>
+                    {{item.latitude}} | {{item.longitude}}
+                    <span class="badge badge-positive">R {{item.cost}}</span>
+                    <span class="badge badge-balanced">{{item.distance}}km</span>
+                </p>
+            </div>
+            <div class="item">
+                <p class="text-center">Damage</p>
+                <img class="repairImg" ng-src="{{item.service_photo}}">
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="title">R {{item.cost}}</div>
+        <div class="buttons buttons-right">
+            <button class="button button-calm button-fab" ng-click="jobDone()">
+                <i class="icon ion-checkmark light"></i>
+            </button>
+        </div>
+    </div>
+</ion-view>
